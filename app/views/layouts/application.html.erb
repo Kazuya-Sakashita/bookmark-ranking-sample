@@ -11,6 +11,47 @@
   </head>
 
   <body>
+  <header>
+    <nav>
+      <ul>
+        <%# ログインしている場合 %>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to '認証情報の変更', edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+          </li>
+
+
+
+          <%# 最後のリストにログインしているかしていないかを確認できるように表示を作る %>
+          <li>
+            ログイン中
+          </li>
+
+
+
+          <%# ログアウトしている場合 %>
+        <% else %>
+          <li>
+            <%= link_to 'サインアップ', new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to 'ログイン', new_user_session_path %>
+          </li>
+          <%# 最後のリストにログインしているかしていないかを確認できるように表示を作る %>
+          <li>
+            ログアウト中
+          </li>
+
+
+        <% end %>
+
+
+      </ul>
+    </nav>
+  </header>
   <% if current_user.present? %>
   <p>こんにちは、<%= current_user.name %>さん！</p>
   <% else %>
