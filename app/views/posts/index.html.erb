@@ -8,7 +8,7 @@
       <th>Title</th>
       <th>Content</th>
       <th>User name</th>
-
+      <th>Like</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +19,11 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.user.name %></td>
+        <td>
+        <div id="likes_buttons_<%= post.id %>">
+          <%= render partial: 'likes/like', locals: {post: post} %>
+        </div>
+        </td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

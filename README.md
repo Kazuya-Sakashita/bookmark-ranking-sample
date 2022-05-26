@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+https://note.com/become_engineer/n/n45f7285622e3
