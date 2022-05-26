@@ -1,0 +1,16 @@
+<h1>イイネランキング！</h1>
+
+<!--配列の1つ目から順に1位、２位と表示される-->
+<%  @post_like_ranks.each.with_index(1) do |post, i| %>
+<li>
+  第<%= i %>位
+:
+投稿者:
+<%= post.user.name %>
+/
+投稿タイトル：
+<%= post.title %>
+</li>
+<% end %>
+
+
