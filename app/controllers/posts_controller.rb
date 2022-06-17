@@ -3,7 +3,10 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    @posts =Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+    # @posts = @posts.page(params[:page])
+    @posts = Kaminari.paginate_array(@posts).page(params[:page])
   end
 
   # GET /posts/1 or /posts/1.json
